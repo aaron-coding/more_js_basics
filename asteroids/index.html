@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src='./lib/movingObject.js'></script>
+    
+
+  </head>
+  <body>
+    <canvas style="border-style: solid; border-width: 1px" id="canvas" width="800" height="600" id="canvas"></canvas> 
+        <script>var mo = new Asteroids.MovingObject(
+      { pos: [30, 30], vel: [10, 10], radius: 5, color: "#00FF00"}
+    );
+    var canvas = document.getElementById('canvas'); 
+    var ctx = canvas.getContext('2d');
+    mo.draw(ctx); 
+    mo.move();
+    mo.draw(ctx); 
+    </script>
+  </body>
+</html>
