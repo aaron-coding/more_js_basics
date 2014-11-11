@@ -1,11 +1,16 @@
 (function(myRootObject) {
   var Asteroids = myRootObject.Asteroids = myRootObject.Asteroids || {};
-  Asteroids.Asteroid = function Asteroid(posObj) {
+  Asteroids.Asteroid = function Asteroid(posObj, game) {
+    console.log(game);
+    this.game = game;
+    this.RADIUS = 30;
+    this.COLOR = "#000000";
     var params = {
       pos: posObj.pos,
-      color: "#000000",
-      radius: 30,
-      vel: [5,5]
+      color: this.COLOR,
+      radius: this.RADIUS,
+      game: game,
+      vel: Asteroids.Util.prototype.randomVec(3)
     }
     Asteroids.MovingObject.call(this, params)
   };

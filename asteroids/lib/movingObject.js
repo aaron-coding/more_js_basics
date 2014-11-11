@@ -5,7 +5,8 @@
     this.pos = optionsObj.pos,
     this.vel = optionsObj.vel,
     this.radius = optionsObj.radius,
-    this.color = optionsObj.color;
+    this.color = optionsObj.color,
+    this.game = optionsObj.game;
   };
   
   Asteroids.MovingObject.prototype.draw = function(ctx) {
@@ -27,6 +28,23 @@
   Asteroids.MovingObject.prototype.move = function() {
     this.pos[0] += this.vel[0];
     this.pos[1] += this.vel[1];
+    // console.log(this.game.wrap)
+    this.game.wrap(this.pos)
   };
+  
+  Asteroids.MovingObject.prototype.isCollidedWith = function(otherObject) {
+    var center1 = this.pos;
+    var center2 = otherObject.pos;
+    var deltaX = center1[0] - center2[0];
+    var deltaY = center1[1] - center2[1];
+    var distance = Math.sqrt((deltaX * deltaX) + (deltaY * deltaY));
+
+    if (distance < (this.radius + otherObject.radius)) {
+      return true
+    } else {
+      return false
+    }
+  };
+  
   
 })(this);
