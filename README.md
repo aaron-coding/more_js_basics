@@ -1,0 +1,1 @@
+This repo covers some basic implementations of Javascript functions. These include myCurry and myBind
